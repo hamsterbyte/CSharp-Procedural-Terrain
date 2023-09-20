@@ -1,0 +1,185 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch74iyqgmq6nl"]
+
+[ext_resource type="Script" path="res://addons/Tilemap Trainer/TilemapTrainer.cs" id="1_q7so2"]
+
+[node name="Tilemap Trainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7so2")
+
+[node name="VContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="HBoxContainer" parent="VContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Generate Button" type="Button" parent="VContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Generate Template"
+
+[node name="Analyze Button" type="Button" parent="VContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Analyze"
+
+[node name="Panel" type="Panel" parent="VContainer"]
+self_modulate = Color(0.890196, 0.890196, 0.890196, 1)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="VContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Parameters" type="VBoxContainer" parent="VContainer/Panel/Margin"]
+layout_mode = 2
+
+[node name="Tile Size" type="HBoxContainer" parent="VContainer/Panel/Margin/Parameters"]
+layout_mode = 2
+tooltip_text = "Size of the tiles in your TileSet"
+
+[node name="Label" type="Label" parent="VContainer/Panel/Margin/Parameters/Tile Size"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tile Size"
+
+[node name="SpinBox" type="SpinBox" parent="VContainer/Panel/Margin/Parameters/Tile Size"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 4.0
+max_value = 512.0
+value = 16.0
+rounded = true
+update_on_text_changed = true
+suffix = "px"
+
+[node name="Tileset" type="HBoxContainer" parent="VContainer/Panel/Margin/Parameters"]
+layout_mode = 2
+tooltip_text = "Select the Tileset you wish you use.
+If left blank you will need to set one up after generation."
+
+[node name="FileDialog" type="FileDialog" parent="VContainer/Panel/Margin/Parameters/Tileset"]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(640, 480)
+transient = false
+always_on_top = true
+popup_window = true
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.tres")
+
+[node name="Label" type="Label" parent="VContainer/Panel/Margin/Parameters/Tileset"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tileset
+"
+
+[node name="Control" type="Control" parent="VContainer/Panel/Margin/Parameters/Tileset"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Path" type="LineEdit" parent="VContainer/Panel/Margin/Parameters/Tileset/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+clear_button_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VContainer/Panel/Margin/Parameters/Tileset/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Button" type="Button" parent="VContainer/Panel/Margin/Parameters/Tileset/Control/MarginContainer"]
+layout_mode = 2
+text = "Select File
+"
+
+[node name="Texture Coords" type="HBoxContainer" parent="VContainer/Panel/Margin/Parameters"]
+layout_mode = 2
+tooltip_text = "Create a .json file to store the texture coords of each permutation relative to your tileset."
+
+[node name="FileDialog" type="FileDialog" parent="VContainer/Panel/Margin/Parameters/Texture Coords"]
+initial_position = 1
+size = Vector2i(640, 480)
+transient = false
+always_on_top = true
+popup_window = true
+ok_button_text = "Save"
+filters = PackedStringArray("*.json")
+
+[node name="Label" type="Label" parent="VContainer/Panel/Margin/Parameters/Texture Coords"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Coordinate File"
+
+[node name="Control" type="Control" parent="VContainer/Panel/Margin/Parameters/Texture Coords"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Path" type="LineEdit" parent="VContainer/Panel/Margin/Parameters/Texture Coords/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+clear_button_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VContainer/Panel/Margin/Parameters/Texture Coords/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Button" type="Button" parent="VContainer/Panel/Margin/Parameters/Texture Coords/Control/MarginContainer"]
+layout_mode = 2
+text = "Create File
+"
